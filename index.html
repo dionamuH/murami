@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./static/styles/test.css">
+    <title>murami</title>
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="nav">
+            <div class="nav-logo">
+              <p>MÙRÁMÍ!</p>
+                <span>MÙRÁMÍ!</span>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <ul>
+                    <li>
+                      <a href="#" class="link active"><i class='bx bx-info-circle' ></i>AboutModel</a>
+                      <ul>
+                        <p class="tooltip">Project Focus: Solving Lagos Rental Uncertainty through Mùràmí. <br><br>
+                          Searching for suitable apartments, particularly in the bustling city of Lagos, can be a daunting task, compounded by the uncertainty of whether the options align with your budget. Enter MÙRÁMÍ, your guide to a more informed renting experience. By factoring in your preferences for amenities, location, and housing type, Mùràmí offers an approximate annual rent estimate, enabling you to make more informed decisions before finalizing your housing choice. <br> <br>
+                          
+                          Model Description: XGBoost Algorithm and Data Advantage. <br> <br>
+                          The Mùràmí. project utilizes the XGBoost algorithm to address the distinct challenges presented by the dataset. Particularly, due to the dataset's limited nature, XGBoost was deliberately chosen for its remarkable performance in scenarios featuring restricted feature sets. The algorithm's capacity to generate accurate predictions even when dealing with limited information highlights its practicality. its ability to handle incomplete data strngthens its reliability.  XGBoost's expertise in addressing the intricacies of restricted datasets positions it as a suitable approach for producing precise forecasts of housing prices, particularly focusing on the influence of diverse amenities. Furthermore, the data this model was trained on, was scraped from apartment leasing platforms. <br><br>
+
+                          Limitations: <br>
+                          While adept at historical estimates, this model doesn't adapt to immediate market shifts, and so, current trends might not be fully captured. <br> <br>
+                          
+                          Note: Data used to train this model will not be updated to reflect evolving trends as they occur.</p>
+                    </ul>
+                    </li>
+                    <!-- <li><a href="#" class="link">MyFolio</a></li> -->
+                    <!-- <li><a href="#" class="link">Resume</a></li> -->
+                </ul>
+            </div>
+            <div class="nav-menu-btn">
+                <i class='bx bx-menu' onclick="myMenuFunction()"></i>
+            </div>
+        </nav>
+        <!-- !---------------------- Form Box ----------------------> 
+
+        <form action="{{ url_for('predict')}}" method="post">
+            <div class="form-box">
+                <div class="input-container" id="input">
+                    <div class="top">
+                        <span>Housing In Lagos Nigeria</span>
+                        <header>Èkó ò ní bàjé</header>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="two-forms">
+                        <div class="input-box">
+                            <h2>Housing Type</h2>
+                            <div class="custom-dropdown" id="housingTypeDropdown">
+                              <div class="dropdown-selected">Select Housing Type <ion-icon name="chevron-down-outline" class="icon-arrow"></ion-icon></div>
+                              <div class="dropdown-options">
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="0">Duplex</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="1">Flat/Apartment</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="2">Mini Flat</div>
+                              </div>
+                              <input type="hidden" name="housing_type" value="">
+                            </div>
+                        </div>
+                          <!-- end of house type -->
+                        <div class="input-box">
+                            <h2>Bedrooms</h2>
+                            <div class="custom-dropdown" id="bedroomsDropdown">
+                              <div class="dropdown-selected">No of Bedrooms <ion-icon name="chevron-down-outline" class="icon-arrow"></ion-icon></div>
+                              <div class="dropdown-options">
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="1">1</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="2">2</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="3">3</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="4">4</div>
+                              </div>
+                              <input type="hidden" name="bedrooms" value="">
+                            </div>
+                        </div>
+                        <div class="input-box">
+                            <h2>Bathrooms</h2>
+                            <div class="custom-dropdown" id="bathroomsDropdown">
+                              <div class="dropdown-selected">No of Bathrooms <ion-icon name="chevron-down-outline" class="icon-arrow"></ion-icon></div>
+                              <div class="dropdown-options">
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="1">1</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="2">2</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="3">3</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="4">4</div>
+                              </div>
+                              <input type="hidden" name="bathrooms" value="">
+                            </div>
+                        </div>
+                          <!-- end of bathrooms -->
+
+                        <div class="input-box">
+                            <h2>Guest Toilet(s)</h2>
+                            <div class="custom-dropdown" id="guestToiletDropdown">
+                              <div class="dropdown-selected">No of Guest Toilet <ion-icon name="chevron-down-outline" class="icon-arrow"></ion-icon></div>
+                              <div class="dropdown-options">
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="0">0</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="1">1</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="2">2</div>
+                              </div>
+                              <input type="hidden" name="guest_toilet" value="">
+                            </div>
+                        </div>
+                        <!-- end of guest toilet -->
+
+                        <div class="input-box">
+                            <h2>Parking Space(s)</h2>
+                            <div class="custom-dropdown" id="parkingSpaceDropdown">
+                              <div class="dropdown-selected">Parking spaces <ion-icon name="chevron-down-outline" class="icon-arrow"></ion-icon></div>
+                              <div class="dropdown-options">
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="0">0</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="1">1</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="2">2</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="3">3</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="4">4</div>
+                              </div>
+                              <input type="hidden" name="parking_space" value="">
+                            </div>
+                        </div>
+
+                        <!-- end of parking space -->
+
+                        <div class="input-box">
+                            <h2>Location</h2>
+                            <div class="custom-dropdown" id="locationDropdown">
+                              <div class="dropdown-selected">Select Location <ion-icon name="chevron-down-outline" class="icon-arrow"></ion-icon></div>
+                              <div class="dropdown-options">
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="0">Oshodi-Mafoluku</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="1">Abule Egba</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="2">Agbado Ijaiye</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="3">Agbara</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="4">Agege</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="5">Ajah</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="6">Alagbado</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="7">Alimosho</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="8">Allen Avenue</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="9">Apapa</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="10">Badagry</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="11">Ejigbo</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="12">Festac</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="13">Gbagada</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="14">Idimu</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="15">Ifako</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="16">Igando</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="17">Ijora Ebute-Metta</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="18">Iju</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="19">Iju Ishaga</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="20">Ikeja</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="21">Ikeja Adeniyi-Jones</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="22">Ikeja G.R.A</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="23">Ikorodu</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="24">Ikotun</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="25">Ikoyi</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="26">Irepo</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="27">Isolo</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="28">Isolo Ago-Palace</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="29">Isolo Jakande</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="30">Iyana Ipaja</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="31">Ketu Ikosi</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="32">Ketu Ogudu</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="33">Ketu Ojota</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="34">Ketu Shangisha</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="35">Lagos Island</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="36">Lekki</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="37">Maryland</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="38">Mushin</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="39">Ogba</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="40">Ojodu Berger</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="41">Oke Afa</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="42">Okota</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="43">Oniru</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="44">Opebi</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="45">Oregun</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="46">Oshodi</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="47">Oshodi Ajao</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="48">Surulere</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="49">Victoria Island</div>
+                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="50">Yaba</div>
+                              </div>
+                              <input type="hidden" name="district" value="">
+                            </div>
+                        </div>
+
+                        <!-- end of district -->
+
+
+                        <!-- the div under this comment is the closing div for two-forms -->
+                    </div>
+                </div>
+            </div>
+            <input type="submit" value ="Estimate" id ="estimate" > 
+        </form>
+        <div class="result" align="center">
+            <p style="font-size:17px">{{ prediction_text }}</p>
+        </div>
+        <section>
+
+          <footer id="author">
+            <p>&copy; 2022 Project Murami | All Rights Reserved | Peace Edogun.</p>
+          </footer>
+
+        </section>
+        
+    </div>
+
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="/static/js/script.js"></script>            
+
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>
