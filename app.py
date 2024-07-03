@@ -1,7 +1,5 @@
-from flask import Flask, request, render_template
+from flask import Flask
 from flask import jsonify
-import pandas as pd
-import pickle
 import numpy as np
 import time
 
@@ -17,9 +15,6 @@ district_mapping = {
     0: "Abraham Adesanya",1: "Abule Egba",2: "Adeniyi Jones",3: "Agege",4: "Agege-Oko-oba",...........}
 
 
-app = Flask(__name__, template_folder='templates', static_folder='static')
-
-
 
 @app.route('/estimate', methods=['POST'])
 def predict():
@@ -29,9 +24,6 @@ def predict():
         prediction = model.predict(features)[0]
         formatted_prediction = '{:,.2f}'.format(prediction)
         return jsonify({'prediction_text': 'Your estimated annual rent based on your selected amenities is ₦{}'.format(formatted_prediction)})
-    except ValueError:
-        error_message = 'Oops! Looks like you left something out...Please complete your selection.'
-        return jsonify({'error': error_message})
         
 if __name__ == '__main__':
     app.run(debug=True)
