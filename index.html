@@ -7,24 +7,15 @@
     <title>murami</title>
 </head>
 <body>
-    <div class="wrapper">
         <nav class="nav">
             <div class="nav-logo">
               <p>MÙRÁMÍ!</p>
-                <span>MÙRÁMÍ!</span>
             </div>
             <div class="nav-menu" id="navMenu">
-                <ul>
-                    <li>
-                      <a href="#" class="link active"><i class='bx bx-info-circle' ></i>AboutModel</a>
-                </ul>
             </div>
             <div class="nav-menu-btn">
-                <i class='bx bx-menu' onclick="myMenuFunction()"></i>
             </div>
         </nav>
-
-      
             <div class="form-box">
                 <div class="input-container" id="input">
                     <div class="top">
@@ -38,11 +29,10 @@
                         <div class="input-box">
                             <h2>Housing Type</h2>
                             <div class="custom-dropdown" id="housingTypeDropdown">
-                              <div class="dropdown-selected">Select Housing Type <ion-icon name="chevron-down-outline" class="icon-arrow"></ion-icon></div>
                               <div class="dropdown-options">
-                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="0">Duplex</div>
-                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="1">Flat/Apartment</div>
-                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="2">Mini Flat</div>
+                                <div class="dropdown-option">Duplex</div>
+                                <div class="dropdown-option">Flat/Apartment</div>
+                                <div class="dropdown-option">Mini Flat</div>
                               </div>
                               <input type="hidden" name="housing_type" value="">
                             </div>
@@ -51,12 +41,11 @@
                         <div class="input-box">
                             <h2>Bedrooms</h2>
                             <div class="custom-dropdown" id="bedroomsDropdown">
-                              <div class="dropdown-selected">No of Bedrooms <ion-icon name="chevron-down-outline" class="icon-arrow"></ion-icon></div>
                               <div class="dropdown-options">
-                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="1">1</div>
-                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="2">2</div>
-                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="3">3</div>
-                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="4">4</div>
+                                <div class="dropdown-option">1</div>
+                                <div class="dropdown-option">2</div>
+                                <div class="dropdown-option">3</div>
+                                <div class="dropdown-option">4</div>
                               </div>
                               <input type="hidden" name="bedrooms" value="">
                             </div>
@@ -64,28 +53,23 @@
                         <div class="input-box">
                             <h2>Bathrooms</h2>
                             <div class="custom-dropdown" id="bathroomsDropdown">
-                              <div class="dropdown-selected">No of Bathrooms <ion-icon name="chevron-down-outline" class="icon-arrow"></ion-icon></div>
                               <div class="dropdown-options">
-                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="1">1</div>
-                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="2">2</div>
-                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="3">3</div>
-                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="4">4</div>
+                                <div class="dropdown-option">1</div>
+                                <div class="dropdown-option">2</div>
+                                <div class="dropdown-option">3</div>
+                                <div class="dropdown-option">4</div>
                               </div>
-                              <input type="hidden" name="bathrooms" value="">
-                            </div>
                         </div>
                           <!-- end of bathrooms -->
 
                         <div class="input-box">
                             <h2>Guest Toilet(s)</h2>
                             <div class="custom-dropdown" id="guestToiletDropdown">
-                              <div class="dropdown-selected">No of Guest Toilet <ion-icon name="chevron-down-outline" class="icon-arrow"></ion-icon></div>
                               <div class="dropdown-options">
-                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="0">0</div>
-                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="1">1</div>
-                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="2">2</div>
+                                <div class="dropdown-option">0</div>
+                                <div class="dropdown-option">1</div>
+                                <div class="dropdown-option">2</div>
                               </div>
-                              <input type="hidden" name="guest_toilet" value="">
                             </div>
                         </div>
                         <!-- end of guest toilet -->
@@ -93,16 +77,13 @@
                         <div class="input-box">
                             <h2>Parking Space(s)</h2>
                             <div class="custom-dropdown" id="parkingSpaceDropdown">
-                              <div class="dropdown-selected">Parking spaces <ion-icon name="chevron-down-outline" class="icon-arrow"></ion-icon></div>
                               <div class="dropdown-options">
-                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="0">0</div>
-                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="1">1</div>
-                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="2">2</div>
-                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="3">3</div>
-                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="4">4</div>
+                                <div class="dropdown-option">0</div>
+                                <div class="dropdown-option">1</div>
+                                <div class="dropdown-option">2</div>
+                                <div class="dropdown-option">3</div>
+                                <div class="dropdown-option">4</div>
                               </div>
-                              <input type="hidden" name="parking_space" value="">
-                            </div>
                         </div>
 
                         <!-- end of parking space -->
@@ -110,28 +91,15 @@
                         <div class="input-box">
                             <h2>Location</h2>
                             <div class="custom-dropdown" id="locationDropdown">
-                              <div class="dropdown-selected">Select Location <ion-icon name="chevron-down-outline" class="icon-arrow"></ion-icon></div>
                               <div class="dropdown-options">
-                                <div class="dropdown-option" style="--i:5;" class="option-text" data-value="0">Oshodi-Mafoluku</div>
-                               
-                              <input type="hidden" name="district" value="">
                             </div>
                         </div>
 
                         <!-- end of district -->
-
-
-                        <!-- the div under this comment is the closing div for two-forms -->
                     </div>
-                </div>
-            </div>
-            <input type="submit" value ="Estimate" id ="estimate" > 
         </form>
-        <div class="result" align="center">
-            <p style="font-size:17px">{{ prediction_text }}</p>
-        </div>
+       
         <section>
-
           <footer id="author">
             <p>&copy; 2022 Project Murami | All Rights Reserved | Peace Edogun.</p>
           </footer>
